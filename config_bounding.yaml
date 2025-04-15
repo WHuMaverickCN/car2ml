@@ -1,0 +1,44 @@
+general_config: 
+  if_indexed: true # 是否已经创建好相应的索引
+
+# Tile data configuration
+tiles_path: ground_truth_tiles.geojson
+
+# Vector data configuration
+vector_data:
+  target_path:
+    - /home/gyx/data/cqc_05_serinf_trainset/L35_0727_part1
+    - /home/gyx/data/cqc_05_serinf_trainset/L35_0727_part2
+    - /home/gyx/data/cqc_05_serinf_trainset/L35_0727_part3
+
+slam_eval_result:
+  eval_result_path: data/slam_eval/prediction_with_subtype_original.csv
+  eval_geofile_path: data/slam_eval/evaluation_results.geojson
+
+
+map_learning_settings:
+  target_maplearn_data_dir: /home/gyx/projects/car2ml/data/W30/ml_l35/556168550
+  # target_maplearn_data_dir: /home/gyx/projects/car2ml/data/W30/ml_l35/556168546
+  # target_maplearn_data_dir: /home/gyx/projects/car2ml/data/W30/ml_l35/556168503
+  gt_dir: /home/gyx/data/cqc/gt/groundtruth/
+  week_info: W30
+  route_info: L35
+
+inherent_map_info:
+  L35: #此处展示的是周度数据对应的具体时间范围, 无需改动
+    W30:
+      start_time: 2023-07-23 09-23-27
+      end_time: 2023-07-28 09-23-27
+    W31:
+      start_time: 2023-07-28 10-23-27
+      end_time: 2023-08-04 16-04-03
+    W32:
+      # start_time: 2023-08-04 17-04-03
+      start_time: 2023-08-01 00-04-03 # W32周的制图流程包含多趟的SLAM数据
+      end_time: 2023-08-10 01-02-06
+
+valid:
+  label_path: data/valid/label_result_W30_ml_l35_556168550_20250309_123902.csv
+  pred_path: data/valid/maplearn_eval_556168550.csv
+  # label_path: data/valid/label_result_W30_ml_l35_556168503_20250311_170557.csv
+  # pred_path: data/valid/maplearn_eval_556168503.csv
