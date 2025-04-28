@@ -18,5 +18,5 @@ if __name__ == '__main__':
     # 示例用法
     # geojson_file = "/home/gyx/projects/serinf/results/map_learn_l35725sample/test_all_vec.geojson"
     # geojson_file = "/home/gyx/projects/shapeformer/Dataset/raw/serinf2jag/modisf/20250304_2125_l35_809/train_all_vec.geojson"
-    geojson_file = "./all_vec_0727.geojson"
+    geojson_file = "/home/gyx/projects/shapeformer/Dataset/raw/serinf2jag/modisf/20250304_1052_l35_727/train_all_vec.geojson"
     geojson_to_sqlite(geojson_file)

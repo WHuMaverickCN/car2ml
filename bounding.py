@@ -33,11 +33,10 @@ vehicle_data.build_rtree()
 with open(config_path, 'r') as file:
     config = yaml.safe_load(file)
 target_maplearn_data_dir = config['map_learning_settings']['target_maplearn_data_dir']
-gt_dir = config['map_learning_settings']['gt_dir']
+# gt_dir = config['map_learning_settings']['gt_dir']
 
 # 2 加载地图学习数据
-maplearn_data = MapLearningData(data_dir = target_maplearn_data_dir, \
-                                ground_truth_dir = gt_dir)
+maplearn_data = MapLearningData(data_dir = target_maplearn_data_dir)
 
 # 3 绑定车端数据到地图学习数据
 vehicle_data.get_target_maplearning_data(maplearn_data)
@@ -54,10 +53,16 @@ slam_in_all_runs = vehicle_data.vehicle_data_oid2feature
 with open(config_path, 'r') as file:
     config = yaml.safe_load(file)
 
-week_info,route_info = config['map_learning_settings']['week_info'],\
-                        config['map_learning_settings']['route_info'] 
+week_info = config['map_learning_settings'].get('week_info')
+route_info = config['map_learning_settings'].get('route_info')
 
-time_span_info = config.get('inherent_map_info').get(route_info).get(week_info)
+if week_info is None or route_info is None:
+    print("week_info or route_info is not configured. Skipping time_span_info calculation.")
+    time_span_info = None
+else:
+    time_span_info = config.get('inherent_map_info', {}).get(route_info, {}).get(week_info)
+
+# time_span_info = config.get('inherent_map_info').get(route_info).get(week_info)
 
 # Get eval result paths from config
 eval_result_path = config['slam_eval_result']['eval_result_path']

@@ -70,7 +70,7 @@ class HD_Data:
         return len(self.geojson_data)
     
 class MapLearningData(HD_Data):
-    def __init__(self, data_dir: str, ground_truth_dir: str):
+    def __init__(self, data_dir: str, ground_truth_dir: str="."):
             """
             Initialize MapLearningData class with directories for data and ground truth
             
@@ -119,10 +119,10 @@ class MapLearningData(HD_Data):
             # Get the full path of matching directory in ground truth folder
             matching_dir = os.path.join(self.ground_truth_dir, tile_name)
             self.tile_name = tile_name
-            if os.path.exists(matching_dir):
-                print(f"Found matching ground truth directory: {matching_dir}")
-            else:
-                print(f"No matching ground truth directory found for {tile_name}")
+            # if os.path.exists(matching_dir):
+            #     print(f"Found matching ground truth directory: {matching_dir}")
+            # else:
+            #     print(f"No matching ground truth directory found for {tile_name}")
 
             try:
                 # Read all geojson files in the matching directory

@@ -146,6 +146,8 @@ class EvalTransfer:
         """
         if not self.vector_features:
             return
+        if not time_span_info:
+            return
             
         start_time = time_span_info.get('start_time')
         end_time = time_span_info.get('end_time')

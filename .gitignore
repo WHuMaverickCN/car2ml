@@ -16,3 +16,6 @@
 __pycache__/
 *.py[cod]
 *.pyc
+
+/config_bounding备份.yaml
+/config_bounding备份P2.yaml
