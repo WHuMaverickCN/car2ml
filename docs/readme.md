@@ -32,8 +32,8 @@ map_learning_settings:
   # target_maplearn_data_dir: /home/gyx/projects/car2ml/data/W30/ml_l35/556168546
   target_maplearn_data_dir: /home/gyx/projects/car2ml/data/W30/ml_l35/556168503
   gt_dir: /home/gyx/data/cqc/gt/groundtruth/
-  week_info: W30
-  route_info: L35
+  week_info: W30 #无需更改
+  route_info: L35 #无需更改
 ```
 
 运行如下命令，执行评价结果传递
